@@ -17,7 +17,10 @@ mix.js('resources/js/app.js', 'public/js').vue()
         require('tailwindcss'),
     ])
     .webpackConfig(require('./webpack.config'));
-
+mix.browserSync({
+    proxy: 'http://anstagram.test',
+    browser: 'chrome'
+});
 if (mix.inProduction()) {
     mix.version();
 }

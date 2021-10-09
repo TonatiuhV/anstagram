@@ -1,9 +1,9 @@
 <template>
     <Head title="Register" />
 
-    <jet-authentication-card>
+    <authentication-card>
         <template #logo>
-            <jet-authentication-card-logo />
+            <authentication-card-logo />
         </template>
 
         <jet-validation-errors class="mb-4" />
@@ -12,6 +12,10 @@
             <div>
                 <jet-label for="name" value="Name" />
                 <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+            </div>
+            <div>
+                <jet-label for="nick_name" value="Nick Name" />
+                <jet-input id="nick_name" type="text" class="mt-1 block w-full" v-model="form.nick_name" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
@@ -51,13 +55,13 @@
                 </jet-button>
             </div>
         </form>
-    </jet-authentication-card>
+    </authentication-card>
 </template>
 
 <script>
-    import { defineComponent } from 'vue'
-    import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
-    import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
+    import { defineComponent } from 'vue' 
+    import AuthenticationCard from '@/Components/AuthenticationCard.vue'
+    import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue'
     import JetButton from '@/Jetstream/Button.vue'
     import JetInput from '@/Jetstream/Input.vue'
     import JetCheckbox from '@/Jetstream/Checkbox.vue'
@@ -68,8 +72,8 @@
     export default defineComponent({
         components: {
             Head,
-            JetAuthenticationCard,
-            JetAuthenticationCardLogo,
+            AuthenticationCard,
+            AuthenticationCardLogo,
             JetButton,
             JetInput,
             JetCheckbox,
@@ -82,6 +86,7 @@
             return {
                 form: this.$inertia.form({
                     name: '',
+                    nick_name: '',
                     email: '',
                     password: '',
                     password_confirmation: '',
